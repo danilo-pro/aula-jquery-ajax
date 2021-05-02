@@ -1,4 +1,6 @@
 function consultaCep() {
+    $(".barra-progresso").show();
+
     var cep  = document.getElementById("cep").value;
     var url = "https://viacep.com.br/ws/" + cep + "/json/";
 
@@ -95,11 +97,21 @@ function consultaCep() {
                     estado = "Tocantins";
                 break;
             }
+
+            $("#logradouro").html(response.logradouro);
+            $("#bairro").html(response.bairro);
+            $("#localidade").html(response.localidade);
+            $("#estado").html(estado);
+            $("#titulo_cep").html("Dados da consulta do CEP: " + response.cep);
+
             // $("#logradouro").html(response.logradouro);
-            document.getElementById("logradouro").innerHTML = "Logradouro: " + response.logradouro;
-            document.getElementById("bairro").innerHTML = "Bairro: " + response.bairro;
-            document.getElementById("localidade").innerHTML = "Localidade: " + response.localidade;
-            document.getElementById("uf").innerHTML = "Estado: " + estado;
+            // document.getElementById("logradouro").innerHTML = response.logradouro;
+            // document.getElementById("bairro").innerHTML = response.bairro;
+            // document.getElementById("localidade").innerHTML = response.localidade;
+            // document.getElementById("estado").innerHTML = estado;
+            
+            $(".cep").show();
+            $(".barra-progresso").hide();
         }
     })
 }
