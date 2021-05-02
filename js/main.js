@@ -1,4 +1,5 @@
 function consultaCep() {
+    $(".cep").hide();
     $(".barra-progresso").show();
 
     var cep  = document.getElementById("cep").value;
