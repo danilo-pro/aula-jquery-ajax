@@ -98,6 +98,11 @@ function consultaCep() {
                 break;
             }
 
+            setTimeout(function(){ 
+                $(".cep").show();
+                $(".barra-progresso").hide();
+            }, 500);
+
             $("#logradouro").html(response.logradouro);
             $("#bairro").html(response.bairro);
             $("#localidade").html(response.localidade);
@@ -110,8 +115,7 @@ function consultaCep() {
             // document.getElementById("localidade").innerHTML = response.localidade;
             // document.getElementById("estado").innerHTML = estado;
             
-            $(".cep").show();
-            $(".barra-progresso").hide();
+            
         }
     })
 }
